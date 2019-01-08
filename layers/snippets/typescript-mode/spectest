@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: A test case for a spec file.
+# key: spectest
+# --
+it ('$1', () => {
+   $2
+});
