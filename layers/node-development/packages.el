@@ -33,7 +33,8 @@
   '(
     (nvm :location (recipe :fetcher github :repo "rejeep/nvm.el"))
     (mocha :location elpa)
-    (indium :location elpa))
+    (indium :location elpa)
+    (realgud-node-inspect :location (recipe :fetcher github :repo "realgud/realgud-node-inspect")))
   "The list of Lisp packages required by the node-development layer.
 
 Each entry is either:
@@ -73,8 +74,14 @@ Each entry is either:
     (setq exec-path-from-shell-variables '("PATH"))
     (exec-path-from-shell-initialize)))
 
-(defun node-development/init-mocha ())
+(defun node-development/init-mocha ()
+  (defalias 'realgud:node-inspect 'realgud:nodejs)
+  (defalias 'indium-connect 'indium-connect-to-nodejs)
+  )
 
-(defun node-development/init-indium ())
+(defun node-development/init-indium ()
+  )
+
+(defun node-development/init-realgud-node-inspect ())
 
 ;;; packages.el ends here
